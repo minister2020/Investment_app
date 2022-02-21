@@ -1,22 +1,33 @@
 
 const express = require('express')
 const router = express.Router()
-const customerController = require('../controllers/customer.controller')
+const customersController  = require('../controllers/customer.controller')
 
 
 
+router.post('/create_customer', customersController.createNewCustomer )
 
+router.get('/customer/verify-otp/:customer/:email/:otp', customersController.verifyOTP)
 
-router.post('/customer/create', customerController.createNewCustomer)
-router.get('/customer', customerController.getCustomer)
+router.get('/customer', customersController.getCustomer )
 
+router.put('/customer', customersController.updateCustomer)
 
-
+router.get('/user/resend-otp/:phone', customersController.resendOtp)
 
 
 
 
 module.exports = router
+
+
+
+
+
+
+
+
+
 
 
 
